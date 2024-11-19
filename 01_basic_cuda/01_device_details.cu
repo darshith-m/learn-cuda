@@ -29,6 +29,14 @@ int main() {
         std::cout << "  Max Threads per Block: " << deviceProp.maxThreadsPerBlock << std::endl;
         std::cout << "  Number of SMs: " << deviceProp.multiProcessorCount << std::endl;
         std::cout << "  Clock Rate: " << deviceProp.clockRate / 1e6 << " GHz" << std::endl;
+        std::cout << "  Max Threads Dimension: [" \
+                  << deviceProp.maxThreadsDim[0] << ", " \
+                  << deviceProp.maxThreadsDim[1] << ", " \
+                  << deviceProp.maxThreadsDim[2] << "]" << std::endl;
+        std::cout << "  Max Grid Size: [" \
+                  << deviceProp.maxGridSize[0] << ", " \
+                  << deviceProp.maxGridSize[1] << ", " \
+                  << deviceProp.maxGridSize[2] << "]" << std::endl;
 
         // Additional properties
         std::cout << "  L2 Cache Size: " << deviceProp.l2CacheSize / 1024 << " KB" << std::endl;
