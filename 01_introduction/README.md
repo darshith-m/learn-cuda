@@ -83,6 +83,34 @@ Understanding this hierarchy and the role of SMs is crucial for optimizing CUDA 
 
 - **High throughput over low latency**: GPUs handle many threads simultaneously but take longer to respond to individual requests.
 - Efficiency depends on:
+
   - Thread utilization.
   - Minimizing memory latency.
   - Avoiding warp divergence.
+
+## **CUDA Compilation**
+
+<p align="center">
+    <img src="./images/cuda_execution_flow.bmp" alt="CUDA Execution Flow" width="35%">
+    <img src="./images/detailed_cuda_execution_flow.png" alt="Detailed CUDA Execution Flow" width="50%">
+  </p>
+
+  The CUDA compilation process transforms CUDA source code into an executable that runs on both the host (CPU) and device (GPU). Here's an overview of the compilation flow:
+
+1. **Source Code Separation:**
+   * CUDA source files (`.cu`) contain both host (CPU) and device (GPU) code.
+   * The CUDA compiler driver, `nvcc`, separates these components for appropriate processing.
+2. **Host Code Compilation:**
+   * The host code, written in standard C/C++, is compiled using a host compiler (e.g., `gcc` on Linux or `cl.exe` on Windows).
+   * This results in object files containing the compiled host code.
+3. **Device Code Compilation:**
+   * Device code, marked by CUDA-specific keywords (e.g., `__global__`, `__device__`), is compiled by `nvcc` into PTX (Parallel Thread Execution) intermediate representation.
+   * PTX code is then assembled into binary code (cubin) suitable for the target GPU architecture.
+4. **Fat Binary Creation:**
+   * The compiled device code is embedded into the host object files as a "fat binary," which may contain multiple versions of the device code to support different GPU architectures.
+5. **Linking:**
+   * The host object files, now containing both host and device code, are linked together with necessary CUDA runtime libraries to produce the final executable.
+6. **Runtime Execution:**
+   * At runtime, the CUDA driver extracts the appropriate device code from the fat binary and loads it onto the GPU for execution.
+
+Understanding this flow is crucial for optimizing CUDA applications and ensuring compatibility across different GPU architectures.
