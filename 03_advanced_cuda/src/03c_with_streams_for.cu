@@ -49,9 +49,9 @@ int main() {
     }
 
     // Synchronize all streams
-    for (int i = 0; i < 4; ++i) {
-        cudaStreamSynchronize(streams[i]);
-    }
+    // for (int i = 0; i < 4; ++i) {
+    //     cudaStreamSynchronize(streams[i]);
+    // }
 
     // Record the stop event
     cudaEventRecord(stopEvent, 0);

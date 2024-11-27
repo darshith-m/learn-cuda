@@ -65,10 +65,10 @@ int main() {
     cudaMemcpyAsync(h_data + 3 * chunkSize, d_data4, chunkSize * sizeof(float), cudaMemcpyDeviceToHost, stream4);
 
     // Synchronize all streams
-    cudaStreamSynchronize(stream1);
-    cudaStreamSynchronize(stream2);
-    cudaStreamSynchronize(stream3);
-    cudaStreamSynchronize(stream4);
+    // cudaStreamSynchronize(stream1);
+    // cudaStreamSynchronize(stream2);
+    // cudaStreamSynchronize(stream3);
+    // cudaStreamSynchronize(stream4);
 
     // Record the stop event
     cudaEventRecord(stopEvent, 0);
