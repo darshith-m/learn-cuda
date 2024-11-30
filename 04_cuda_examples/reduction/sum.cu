@@ -33,7 +33,7 @@ __global__ void computeSumKernel(const float* d_arr, float* d_sum, int n) {
 }
 
 int main() {
-    int n = 1 << 20;  // Array size (1 million elements)
+    int n = 1 << 25;  // Array size (1 million elements)
     size_t size = n * sizeof(float);
 
     // Host arrays

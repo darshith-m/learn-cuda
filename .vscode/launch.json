@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "CUDA C++ Debug",
+            "type": "cuda-gdb",
+            "request": "launch",
+            "program": "${workspaceFolder}/04_cuda_examples/sorting/quick_sort",
+            "debuggerPath": "/usr/local/cuda-12.6/bin/cuda-gdb",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/04_cuda_examples/sorting",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "cuda-gdb",
+            "visualizerFile": "${workspaceFolder}/my_natvis.natvis",
+            "sourceFileMap": {
+                "${workspaceFolder}": {
+                    "editorPath": "${workspaceFolder}",
+                    "useForBreakpoints": "true"
+                }
+            }
+        }
+    ]
+}

@@ -3,12 +3,15 @@
 # Compiler
 CC = nvcc
 
+# Compiler flags
+CFLAGS = -g -G
+
 # Target
 TARGET = $(basename $(SRC))
 
 # Compile the CUDA file
 $(TARGET): $(SRC)
-	$(CC) -o $(TARGET) $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
 # run
 run: $(TARGET)
@@ -16,4 +19,4 @@ run: $(TARGET)
 
 # Clean
 clean:
-	rm -f $(TARGET)
+	rm -f $(TARGET) *.o *.ptx
